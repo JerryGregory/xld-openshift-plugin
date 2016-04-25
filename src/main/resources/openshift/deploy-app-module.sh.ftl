@@ -11,8 +11,10 @@
 ${deployed.container.ocHome}/oc login --server=${deployed.container.serverUrl} -u ${deployed.container.username} -p '${deployed.container.password}' --insecure-skip-tls-verify=true
 ${deployed.container.ocHome}/oc project ${deployed.project}
 
-# determine if this app already exists, if not deploy a new one
-echo "create new app automatically"
+echo "delete app ${deployed.appName}"
+${deployed.container.ocHome}/oc delete all -l app=${deployed.appName}
+
+echo "create new app ${deployed.appName}"
 ${deployed.container.ocHome}/oc new-app <#if deployed.dockerUrl?has_content>${deployed.dockerUrl}/</#if><#if deployed.dockerOrganization?has_content>${deployed.dockerOrganization}/</#if>${deployed.dockerName}<#if deployed.dockerTag?has_content>:${deployed.dockerTag}</#if> --name=${deployed.appName}
 ${deployed.container.ocHome}/oc expose service ${deployed.appName}
 ${deployed.container.ocHome}/oc status
