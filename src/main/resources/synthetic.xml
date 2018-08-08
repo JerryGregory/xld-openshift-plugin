@@ -11,7 +11,7 @@
 
     <!-- OpenShift v3 -->
     <!-- v3 container -->
-    <type type="openshift.Server" extends="udm.BaseContainer">
+    <type type="ose.Server" extends="udm.BaseContainer">
         <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true" description="The host where the oc client is installed on."/>
         <property name="serverUrl" required="true"/>
         <property name="ocHome" required="true"/>
@@ -22,18 +22,18 @@
 
     <!-- v3 deployables -->
     <!-- v3 project - should already exist. -->
-    <type type="openshift.ProjectModule" extends="udm.BaseDeployed" deployable-type="openshift.Project"
-          container-type="openshift.Server" description="OpenShift Project">
-        <generate-deployable type="openshift.Project" extends="udm.BaseDeployable"/>
+    <type type="ose.ProjectModule" extends="udm.BaseDeployed" deployable-type="ose.Project"
+          container-type="ose.Server" description="ose Project">
+        <generate-deployable type="ose.Project" extends="udm.BaseDeployable"/>
         <property name="projectName" required="true"/>
         <property name="description" required="false"/>
         <property name="projectDisplayName" required="false"/>
     </type>
 
     <!-- v3 app -->
-    <type type="openshift.AppModule" extends="udm.BaseDeployed" deployable-type="openshift.App"
-          container-type="openshift.Server" description="OpenShift App">
-        <generate-deployable type="openshift.App" extends="udm.BaseDeployable"/>
+    <type type="ose.AppModule" extends="udm.BaseDeployed" deployable-type="ose.App"
+          container-type="ose.Server" description="ose App">
+        <generate-deployable type="ose.App" extends="udm.BaseDeployable"/>
         <property name="appName" required="true"/>
         <property name="project" required="true"/>
         <property name="dockerUrl" required="false" category="Docker"/>

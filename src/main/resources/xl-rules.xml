@@ -8,9 +8,9 @@
 
 <rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
 
-    <rule name="openshift.ProjectModule.CREATE_MODIFY" scope="deployed">
+    <rule name="ose.ProjectModule.CREATE_MODIFY" scope="deployed">
         <conditions>
-            <type>openshift.ProjectModule</type>
+            <type>ose.ProjectModule</type>
             <operation>CREATE</operation>
             <operation>MODIFY</operation>
         </conditions>
@@ -22,9 +22,9 @@
         </steps>
     </rule>
 
-    <rule name="openshift.ProjectModule.DESTROY" scope="deployed">
+    <rule name="ose.ProjectModule.DESTROY" scope="deployed">
         <conditions>
-            <type>openshift.ProjectModule</type>
+            <type>ose.ProjectModule</type>
             <operation>DESTROY</operation>
         </conditions>
         <steps>
@@ -35,9 +35,9 @@
         </steps>
     </rule>
 
-    <rule name="openshift.AppModule.CREATE_MODIFY" scope="deployed">
+    <rule name="ose.AppModule.CREATE_MODIFY" scope="deployed">
         <conditions>
-            <type>openshift.AppModule</type>
+            <type>ose.AppModule</type>
             <operation>CREATE</operation>
             <operation>MODIFY</operation>
         </conditions>
@@ -49,9 +49,9 @@
         </steps>
     </rule>
 
-    <rule name="openshift.AppModule.DESTROY" scope="deployed">
+    <rule name="ose.AppModule.DESTROY" scope="deployed">
         <conditions>
-            <type>openshift.AppModule</type>
+            <type>ose.AppModule</type>
             <operation>DESTROY</operation>
             <operation>MODIFY</operation>
         </conditions>
